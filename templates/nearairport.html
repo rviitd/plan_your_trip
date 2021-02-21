@@ -1,0 +1,107 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qtrip:Flights</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+ <link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_Flights.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_home.css') }}">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+</head>
+<body>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li><a href="http://localhost:5000/" accesskey="1" title="">Homepage</a></li>
+        
+        <li class="current_page_item"><a href="#" accesskey="2" title="">Flights</a></li>
+    <li ><a href="http://localhost:5000/trains" accesskey="3" title="">Trains</a></li>
+        <li><a href="http://localhost:5000/hotels" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" accesskey="5" title="">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="header-featured"> </div>
+
+<div id="wrapper">
+
+        <div id ="extra" class="container">
+            <h2 class="mt-5 ">Search results</h1>
+            <p class="lead"></p>
+            <table class="mt-5 table table-bordered">
+                <tbody> 
+		    <col width="400">
+  		    <col width="1800">
+                    {% for row in rows %}   
+                    <tr>
+                        <th scope="row" colspan="2" align="center"><strong style="font-size:25px;">{{row[1]}}</strong><br/></th>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">Airport Code</td>
+                        <td scope="row" align="center">{{row[0]}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">City</td>
+                        <td scope="row" align="center">{{row[2]}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">Type</td>
+                        <td scope="row" align="center">{{row[3]}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">Home Link</td>
+                        <td scope="row" align="center">{{row[4]}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">Wikipedia Link</td>
+                        <td scope="row" align="center">{{row[5]}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">Keywords</td>
+                        <td scope="row" align="center">{{row[6]}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">Latitude</td>
+                        <td scope="row" align="center">{{row[8]}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" align="center">Longitude</td>
+                        <td scope="row" align="center">{{row[9]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+	    <a href="/" class="button">Go to Home</a> </div>
+        </div>
+    
+</div>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                This web page was built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>
+                as Database Management System Project(COL 362) for the session 2019-20.
+	</marquee>
+   </span>
+</div>
+</body>
+</html>

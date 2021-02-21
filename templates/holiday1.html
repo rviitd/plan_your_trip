@@ -1,0 +1,159 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qtrip:Hotels</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<!--<link href="CSS/default_hotel.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts/fonts_train.css" rel="stylesheet" type="text/css" media="all" />-->
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_holiday.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_train.css') }}">
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li><a href="http://localhost:5000/" accesskey="1" title="">Homepage</a></li>
+        
+        <li><a href="http://localhost:5000/flights" accesskey="2" title="">Flights</a></li>
+	<li ><a href="http://localhost:5000/trains" accesskey="3" title="">Trains</a></li>
+        <li><a href="http://localhost:5000/hotels" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" accesskey="5" title="">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="header-featured"> </div>
+
+<div id="wrapper">
+        <div id= "extra" class="container">
+            <h2 class="mt-5 ">Train To "{{cname}}"</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Via Station</th>
+                        <th scope="col">Train Number Between Source and Intermediate</th>
+                        <th scope="col">Train Number Between Intermediate and Destination</th>
+                        <th scope="col">Time Taken</th>
+                    </tr>
+                </thead>
+                <tbody>
+        <col width="400">
+          <col width="600">
+        <col width="400">
+        <col width="300">
+                    {% for row in rows_train %}
+                    <tr>
+                          <td scope="row" align="center">
+                          {{row[2]}}
+          
+        </td>
+        <td scope="row" align="center">{{row[5]}}</td>
+                          <td scope="row" align="center">{{row[6]}}</td>
+        <td scope="row" align="center">{{row[7]}}
+        </td>
+                        
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br><br>
+            <h2 class="mt-5 ">Hotel In"{{cname}}"</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Hotel Name</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Hotel Star Rating</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+        <col width="400">
+          <col width="600">
+        <col width="400">
+        <col width="300">
+                    {% for row in rows %}
+                    <tr>
+      <form action="/hdetails" method="post">
+                          <td scope="row" align="center">
+                          {{row[0]}}
+          <input type="hidden" value="{{row[0]}}" name="Hotel_Name" />
+          <input type="hidden" value="{{row[3]}}" name="City_Name" />
+          
+        </td>
+        <td scope="row" align="center">{{row[1]}}</td>
+                          <td scope="row" align="center">{{row[2]}}</td>
+        <td scope="row" align="center">
+          <input type="submit" value="Visit" />
+          <button formaction="/hotelratings" >Rate</button>
+        </td>
+      </form>
+                        
+                        <!--<td scope="row">{{row[3]}}</td>-->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table><br><br>
+        <h2 class="mt-5 ">Train From "{{cname}}"</h2>
+      <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Via Station</th>
+                        <th scope="col">Train Number Between Source and Intermediate</th>
+                        <th scope="col">Train Number Between Intermediate and Destination</th>
+                        <th scope="col">Time Taken</th>
+                    </tr>
+                </thead>
+                <tbody>
+        <col width="400">
+          <col width="600">
+        <col width="400">
+        <col width="300">
+                    {% for row in rows_train_rev %}
+                    <tr>
+                          <td scope="row" align="center">
+                          {{row[2]}}
+          
+        </td>
+        <td scope="row" align="center">{{row[5]}}</td>
+                          <td scope="row" align="center">{{row[6]}}</td>
+        <td scope="row" align="center">{{row[7]}}
+        </td>
+                        
+                        <!--<td scope="row">{{row[3]}}</td>-->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table> 
+  <a href="/" class="button">Go to Home</a> </div>
+        </div>
+    <!--</main>-->
+    
+</div>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                This web page was built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>
+                as Database Management System Project(COL 362) for the session 2019-20.
+	</marquee>
+   </span>
+</div>
+</body>
+</html>

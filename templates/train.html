@@ -1,0 +1,149 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qtrip:Trains</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<!--<link href="CSS/default_train.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts/fonts_train.css" rel="stylesheet" type="text/css" media="all" />-->
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_train.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_train.css') }}">
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+<p id="demo"></p>
+  <script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  var test = "Hello";
+document.getElementById("mytext").value = test;
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  var latitude= position.coords.latitude;
+  document.getElementById("mytext").value = latitude;
+  var longitude=position.coords.longitude;
+  document.getElementById("mytext1").value = longitude;
+  return latitude,longitude
+}
+</script>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li><a href="http://localhost:5000/" accesskey="1" title="">Homepage</a></li>
+        
+        <li><a href="http://localhost:5000/flights" accesskey="2" title="">Flights</a></li>
+	<li class="current_page_item"><a href="#" accesskey="3" title="">Trains</a></li>
+        <li><a href="http://localhost:5000/hotels" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" accesskey="5" title="">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="header-featured"> </div>
+
+<div id="wrapper">
+  <div id="featured-wrapper">
+    <div id="featured" class="container">
+      <div class="column1"> 
+        <div class="title">
+          <h2>Search By Train Number</h2>
+        </div>
+        <form action="/train" method="post">
+        <input type="text" name="Train_Number"><br>
+        <br>
+          <input type="Submit" value="Search">
+        </form>
+      </div>
+      <div class="column2"> 
+        <div class="title">
+          <h2>Search BY Train Name</h2>
+        </div>
+        <form action="/trainname" method="post">
+          <input type="text" name="Train_Name" style="text-align: center;"><br>
+          <br>
+          <input type="Submit" value="Search">
+        </form>
+      </div>
+      <div class="column3"> 
+        <div class="title">
+          <h2>Search Between Stations</h2>
+        </div>
+        <form action="/searchbetstations" method="post">
+
+    <table>
+    <tr>
+      <td>From City:</td>
+      <td><input name="From_Station"></td>
+    </tr><tr>
+      <td>To City:</td>
+      <td><input name="To_Station"></td>
+    </tr>
+  </table>
+  <br>
+  <input type="submit" value="Search">
+
+        </form>
+      </div>
+      <div class="column4">
+        <div class="title">
+          <h2>Search Time Table</h2>
+        </div>
+        <form action="/trainroutes" method="post">
+	  	<table>
+    			<tr>
+	      			<td>Train Number:</td>
+	      			<td><input name="Train_Number"></td>
+	    		</tr>
+	  	</table><br>
+          	<input type="Submit" value="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="extra" class="container">
+    <h2>Search for a Wonderful Journey</h2>
+    <!--<span>Quisque dictum integer nisl risus, sagittis convallis, rutrum id, congue, and nibh</span> -->
+    <p>This is to assist you to have a remarkable experience on your journey . </p>
+
+    <a onclick="getLocation()" class="button">GET CURRENT LOCATION</a><br><br>
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}<br>
+      {% endif %}
+    <form  action="/location" method="post">  
+	<input type="hidden" id="mytext" name="latitude">
+	<input type="hidden" id="mytext1" name="longitude">
+	<input class="button" type="submit" value="Search Nearest Railway Station">
+	</form> </div>
+</div>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                Built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>.
+	</marquee>
+   </span>
+</div>
+</body>
+</html>

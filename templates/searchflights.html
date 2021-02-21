@@ -1,0 +1,116 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qtrip:Flights</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+ <link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_Flights.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_home.css') }}">
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li><a href="http://localhost:5000/" accesskey="1" title="">Homepage</a></li>
+        
+        <li class="current_page_item"><a href="#" accesskey="2" title="">Flights</a></li>
+    <li ><a href="http://localhost:5000/trains" accesskey="3" title="">Trains</a></li>
+        <li><a href="http://localhost:5000/hotels" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" accesskey="5" title="">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="header-featured"> </div>
+<div id="wrapper">
+        <div id= "extra" class="container">
+            <h2 class="mt-5 ">Flights Dataset</h1>
+
+		<form action="/flight/filter" method="post">
+		  {% if error %}
+        		<p class="error"><strong>Error:</strong> {{ error }}<br>
+	          {% else %}
+			  Airline Type
+			  <input type="hidden" value="{{rows[0][0]}}" name="Flight_Number" />
+			  <input type="checkbox" name="Airline" value="9I"> 9I
+			  <input type="checkbox" name="Airline" value="LB"> LB
+			  <input type="checkbox" name="Airline" value="AI"> AI
+			  <input type="checkbox" name="Airline" value="UK"> UK
+			  <input type="checkbox" name="Airline" value="S2"> S2
+			  <input type="checkbox" name="Airline" value="9W"> 9W
+			  <input type="checkbox" name="Airline" value="SG"> SG
+			  <input type="checkbox" name="Airline" value="2T"> 2T
+			  <input type="checkbox" name="Airline" value="I5"> I5
+			  <input type="checkbox" name="Airline" value="G8"> G8
+			  <input type="checkbox" name="Airline" value="6E"> 6E
+			  <input type="submit" value="Submit">
+      		  {% endif %}
+		  
+		</form>
+
+            <table class="mt-5 table table-bordered">
+		<thead>
+                    <tr>
+                        <th scope="col">FLight Number</th>
+                        <th scope="col">Airline</th>
+                        <th scope="col">From Airport</th>
+			<th scope="col">To Airport</th>
+                        <th scope="col">Scheduled Time</th>
+			<th scope="col">Days</th>
+                    </tr>
+                </thead>
+                <tbody>
+		    <col width="200">
+  		    <col width="200">
+		    <col width="200">
+		    <col width="300">
+		    <col width="300">
+		    <col width="300">	
+                    {% for row in rows %}
+                    <tr>
+			<td scope="row" align="center">{{row[0]}}</td>
+                        <td scope="row" align="center">{{row[1]}}</td>
+                        <td scope="row" align="center">{{row[2]}}</td>
+                        <td scope="row" align="center">{{row[3]}}</td>
+			<td scope="row" align="center">{{row[4]}}</td>
+			<td scope="row" align="center">{{row[5]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+	<a href="/" class="button">Go to Home</a> </div>
+        </div>
+    <!--</main>-->
+    
+</div>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                This web page was built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>
+                as Database Management System Project(COL 362) for the session 2019-20.
+	</marquee>
+   </span>
+</div>
+</body>
+</html>

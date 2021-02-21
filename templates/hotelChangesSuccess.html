@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V13</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================
+	<link rel="icon" type="image/png" href="Users/nitinyadav/static/CSS/images/favicon.ico"/>-->
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='CSS/images/favicon.ico') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="/Users/nitinyadav/static/CSS/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="/Users/nitinyadav/static/CSS/fonts/iconic/css/material-design-iconic-font.min.css">-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="/Users/nitinyadav/static/vendor/animate/animate.css">-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="/Users/nitinyadav/static/vendor/css-hamburgers/hamburgers.min.css">-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="/Users/nitinyadav/static/vendor/animsition/css/animsition.min.css">-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="/Users/nitinyadav/static/vendor/select2/select2.min.css">-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="/Users/nitinyadav/static/vendor/daterangepicker/daterangepicker.css">-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main_form.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_hotel1.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_train.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+ <script>
+  function xyz(){
+      alert("You will be logged out!")
+      return true;          
+  }
+</script>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour" onclick="xyz()">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li><a href="http://localhost:5000/" onclick="xyz()" accesskey="1" title="">Homepage</a></li>
+        
+        <li><a href="http://localhost:5000/flights" onclick="xyz()" accesskey="2" title="">Flights</a></li>
+	<li ><a href="http://localhost:5000/trains" onclick="xyz()" accesskey="3" title="">Trains</a></li>
+        <li class="current_page_item"><a href="#" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" onclick="xyz()" accesskey="5" title="">Contact Us</a></li>
+	<div class="wrap-contact100-form-btn">
+		<div class="contact100-form-bgbtn"></div>
+			<button class="contact100-form-btn" type="text">
+				<strong style="font-size:20px;">{{uname}}</strong>
+			</button>
+	</div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+	<div class="container-contact100">
+		<div class="contact100-map" >
+			<img src="/static/CSS/images/hotel1.jpg" height="100%" width ="100%">
+		</div>
+
+
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="/dashboard" method="post">
+				<span class="contact100-form-title">
+					Hotel Changes Successful!!
+				</span>
+				<div class="wrap-contact100-form-btn">
+				<div class="contact100-form-bgbtn"></div>
+					<input type="hidden" value="{{uname}}" name="nam" />
+					<input type="hidden" value="{{user}}" name="xmail" />
+					<button class="contact100-form-btn" type="submit">
+						Go to Dashboard
+					</button>
+				</div>
+			</form>	
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="js/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                This web page was built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>
+                as Database Management System Project(COL 362) for the session 2019-20.
+	</marquee>
+   </span>
+</div>
+
+</body>
+</html>

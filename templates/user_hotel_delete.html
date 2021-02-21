@@ -1,0 +1,123 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qtrip:Hotel/City</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<!--<link href="Users/nitinyadav/static/CSS/default_home.css" rel="stylesheet" type="text/css" media="all" />
+<link href="Users/nitinyadav/static/CSS/fonts_home.css" rel="stylesheet" type="text/css" media="all" />-->
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_hotel1.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_home.css') }}">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+</head>
+<body>
+  <script>
+  function xyz(){
+      alert("You will be logged out!")
+      return true;          
+  }
+</script>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour" onclick="xyz()">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li><a href="http://localhost:5000/" onclick="xyz()" accesskey="1" title="">Homepage</a></li>
+        
+        <li><a href="http://localhost:5000/flights" onclick="xyz()" accesskey="3" title="">Flights</a></li>
+	<li><a href="http://localhost:5000/trains" onclick="xyz()" accesskey="2" title="">Trains</a></li>
+        <li class="current_page_item"><a href="http://localhost:5000/hotels" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" onclick="xyz()" accesskey="5" title="">Contact Us</a></li>
+	<li><a href="#" accesskey="5" title=""><strong style="font-size:20px;">{{uname}}</strong></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="header-featured"> </div>
+
+<div id="wrapper">
+        <div id= "extra" class="container">
+            <h2 class="mt-5 ">Hotel Dataset</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Hotel Name</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Hotel Star Rating</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+		    <col width="400">
+  		    <col width="600">
+		    <col width="400">
+		    <col width="300">
+                    {% for row in rows %}
+                    <tr>
+			<form action="/hdetails" method="post">
+                        	<td scope="row" align="center">
+                    			{{row[0]}}
+					<input type="hidden" value="{{uname}}" name="nam" />
+					<input type="hidden" value="{{user}}" name="mail" />
+					<input type="hidden" value="{{row[0]}}" name="Hotel_Name" />
+					<input type="hidden" value="{{row[3]}}" name="City_Name" />
+					
+				</td>
+				<td scope="row" align="center">{{row[1]}}</td>
+                       		<td scope="row" align="center">{{row[2]}}</td>
+				<td scope="row" align="center">
+					<input type="submit" value="Visit" />
+					<button formaction="/edithotel">Edit Details</button>
+					<input type="hidden" value="{{row[4]}}" name="pid" />
+					<button formaction="/deletehotel" >Delete</button>
+				</td>
+			</form>
+                        
+                        <!--<td scope="row">{{row[3]}}</td>-->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+	<form action="/dashboard" method="post">
+		<div class="wrap-contact100-form-btn">
+			<div class="contact100-form-bgbtn"></div>
+				<input type="hidden" value="{{uname}}" name="nam" />
+				<input type="hidden" value="{{user}}" name="xmail" />
+				<button class="contact100-form-btn" type="submit">
+					Go to Dashboard
+				</button>
+		</div>
+	</form>	
+	</div>
+	
+        </div>
+    <!--</main>-->
+    
+</div>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                This web page was built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>
+                as Database Management System Project(COL 362) for the session 2019-20.
+	</marquee>
+   </span>
+</div>
+</body>
+</html>

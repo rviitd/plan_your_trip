@@ -1,0 +1,159 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qtrip:Hotels</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<!--<link href="CSS/default_hotel.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts/fonts_train.css" rel="stylesheet" type="text/css" media="all" />-->
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_hotel1.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_train.css') }}">
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+  <p id="demo"></p>
+  <script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  var test = "Hello";
+document.getElementById("mytext").value = test;
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  var latitude= position.coords.latitude;
+  document.getElementById("mytext").value = latitude;
+  var longitude=position.coords.longitude;
+  document.getElementById("mytext1").value = longitude;
+  return latitude,longitude
+}
+</script>
+
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li><a href="http://localhost:5000/" accesskey="1" title="">Homepage</a></li>
+        
+        <li><a href="http://localhost:5000/flights" accesskey="2" title="">Flights</a></li>
+	<li ><a href="http://localhost:5000/trains" accesskey="3" title="">Trains</a></li>
+        <li class="current_page_item"><a href="#" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" accesskey="5" title="">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="header-featured"> </div>
+
+<div id="wrapper">
+  <div id="featured-wrapper">
+    <div id="featured" class="container">
+      <!--<div class="column1"> <span class="icon icon-cogs"></span>
+        <div class="title">
+          <h2>City Wise Hotels</h2>
+        </div>
+        <form action="/hotel" method="post">
+          <input type="text" name="City_Name"><br>
+          <input type="Submit" value="Search">
+        </form>
+      </div>-->
+      <div class="column2"> <span class="icon icon-legal"></span>
+        <div class="title">
+          <h2>Hotel Details</h2>
+        </div>
+        <form action="/allhotels" method="post">
+		<table>
+		<tr>
+			<td>Hotel Name</td>
+			<td><input type="text" name="Hotel_Name" style="text-align: center;"><br></td>
+		</tr><tr>
+			<td>City*</td>
+			<td><input type="text" name="City_Name" required style="text-align: center;"><br></td>
+		</tr>
+	</table>
+	<br>
+          <!--Hotel Name <input type="text" name="Hotel_Name" style="text-align: center;"><br>
+          City <input type="text" name="City_Name" style="text-align: center;"><br>-->
+          <input type="Submit" value="Search">
+        </form>
+      </div>
+      <!--<div class="column3"> <span class="icon icon-unlock"></span>
+        <div class="title">
+          <h2>Add your Hotel</h2>
+        </div>
+        <form action="/hotelRegistration" method="post">
+		<table>
+		<tr>
+			<td>Create a unique Id for your Hotel</td>
+			<td><input type="text" required name="Hotel_Id" style="text-align: center;"><br></td>
+		</tr>
+		</table>
+		<br>
+		<input type="submit" value="Click here to add">
+
+        </form>
+	{% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      	{% endif %}
+      </div>-->
+      <div class="column4"> <span class="icon icon-wrench"></span>
+        <div class="title">
+          <h2>New User: Sign-Up</h2>
+        </div>
+        <form action="/signup" method="post">
+          	<input type="Submit" value="Sign-Up">
+        </form>
+	<div class="title">
+          <h2>Login</h2>
+        </div>
+        <form action="/login" method="post">
+          	<input type="Submit" value="Login">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="extra" class="container">
+    <h2>Search for a Wonderful Journey</h2>
+    <!--<span>Quisque dictum integer nisl risus, sagittis convallis, rutrum id, congue, and nibh</span> -->
+    <p>This is to assist you to have a remarkable experience on your journey . </p>
+    <a onclick="getLocation()" class="button">GET CURRENT LOCATION</a><br><br>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}<br>
+      {% endif %}
+	    <form  action="/location_hotel" method="post">  
+	<input type="hidden" id="mytext" name="latitude">
+	<input type="hidden" id="mytext1" name="longitude">
+	<input class="button" type="submit" value="Search Nearest Hotel">
+	</form> 
+</div>
+</div>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                This web page was built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>
+                as Database Management System Project(COL 362) for the session 2019-20.
+	</marquee>
+   </span>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qtrip:Home</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<!--<link href="Users/nitinyadav/static/CSS/default_home.css" rel="stylesheet" type="text/css" media="all" />
+<link href="Users/nitinyadav/static/CSS/fonts_home.css" rel="stylesheet" type="text/css" media="all" />-->
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/default_home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/fonts_home.css') }}">
+
+</head>
+<body>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="http://localhost:5000/plan_tour">Plan Your Trip</a></h1>
+</div>
+    <div id="menu">
+      <ul>
+        <li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
+        
+        <li><a href="http://localhost:5000/flights" accesskey="3" title="">Flights</a></li>
+	<li><a href="http://localhost:5000/trains" accesskey="2" title="">Trains</a></li>
+        <li><a href="http://localhost:5000/hotels" accesskey="4" title="">Hotels</a></li>
+        <li><a href="http://localhost:5000/contact_us" accesskey="5" title="">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="header-featured"> </div>
+
+<div id="wrapper">
+  <div id="featured-wrapper">
+    <div id="featured" class="container">
+
+      <div class="column1"> <span class="icon icon-search"></span>
+        <div class="title">
+          <h2>Search your Train</h2>
+        </div>
+        <a href="http://localhost:5000/trains" class="button">Select Here</a> 
+      </div>
+      
+      <div class="column2"> <span class="icon icon-home"></span>
+        <div class="title">
+          <h2>Plan your Stay</h2>
+        </div>
+        <a href="http://localhost:5000/hotels" class="button">Select Here</a> 
+      </div>
+    </div>
+  </div>
+  <div id="extra" class="container">
+    <h2>Search for a Wonderful Journey</h2>
+    <!--<span>Quisque dictum integer nisl risus, sagittis convallis, rutrum id, congue, and nibh</span> -->
+    <p>This is to assist you to have a remarkable experience on your journey . </p>
+
+    <a href="#" class="button">Go to Top</a> </div>
+</div>
+
+<div id="copyright" class="container">
+  <span class="text-muted">
+	<marquee>
+                This web page was built by
+                <a href="https://www.linkedin.com/in/kumar-shubham-iitd/" target="_blank">@kumarshubham</a>,
+                <a href="https://www.linkedin.com/in/ravi-singh-3b54b1131/" target="_blank">@ravisingh</a> and
+		<a href="https://www.linkedin.com/in/nitin-yadav-b04090158/" target="_blank">@nitinyadav</a>
+
+                using
+                <a href="http://flask.pocoo.org" target="_blank">Flask</a>,
+                <a href="https://getbootstrap.com/docs/4.2/" target="_blank">Bootstrap</a>,
+                <a href="https://code.visualstudio.com" target="_blank">VSCode</a>
+                as Database Management System Project(COL 362) for the session 2019-20.
+	</marquee>
+   </span>
+</div>
+</body>
+</html>
