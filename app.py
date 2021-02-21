@@ -12,15 +12,15 @@ app = Flask(__name__)
 
 '''params = {
 
-  'dbname': 'group_11',
+  'dbname': '******',
 
-  'user': 'group_11',
+  'user': '******',
 
-  'password': '191-574-834',
+  'password': '*******',
 
-  'host': '10.17.51.19',
+  'host': '******',
 
-  'port': 5432
+  'port': *****
 
 }
 conn = psycopg2.connect(**params)
